@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PR29_Паксюаткин"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="/Images/icon_mainwindow.png">
+        Title="Курсы и преподаватели в онлайн-образовании" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="/icon-mainwindow.png">
     <Window.Resources>
         <Style TargetType="{x:Type Window}">
             <Setter Property="FontFamily" Value="Segoe UI" />
@@ -27,7 +27,7 @@
             <Grid.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5" />
             </Grid.Effect>
-            <Image Width="35" Height="35" HorizontalAlignment="Left" Margin="10, 6" Source="/Images/icon_mainwindow.png" />
+            <Image Width="35" Height="35" HorizontalAlignment="Left" Margin="10, 6" Source="/icon-mainwindow.png" />
             <Label Content="Курсы и преподаватели в онлайн-образовании" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="15pt" Margin="55,0,0,0" />
             <Button Content="Курсы" Width="100" Height="25" Margin="0,0,117,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="OpenCourses" />
             <Button Content="Преподаватели" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="OpenTeachers" />

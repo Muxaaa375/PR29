@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PR29_Паксюаткин.Classes;
+using PR29_Паксюаткин.Context;
+using PR29_Паксюаткин.ViewModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace PR29_Паксюаткин.Model
 {
     public class Teachers : INotifyPropertyChanged
     {
-        private int _id;
 
+        private int _id;
         public int Id
         {
             get { return _id; }
@@ -62,5 +63,39 @@ namespace PR29_Паксюаткин.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
             }
         }
+
+        public RelayCommand OnEdit
+        {
+            get
+            {
+                return new RelayCommand(teachersItem =>
+                {
+                    if (teachersItem is Teachers teachersObject)
+                    {
+                        using TeachersContext teachersContext = new();
+                        VMTeachersAdd newModel = new(teachersObject, teachersContext);
+                        MainWindow.init?.frame.Navigate(new View.Teachers.Add(newModel));
+                    }
+                });
+            }
+        }
+        public RelayCommand OnDelete
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    if (obj is Teachers teachersItem)
+                    {
+                        using TeachersContext teachersContext = new();
+                        teachersContext.Delete(this);
+                        MainWindow.init.MainTeachers = new View.Teachers.Main();
+                        MainWindow.init.frame.Navigate(MainWindow.init.MainTeachers);
+                    }
+                });
+            }
+        }
+
+
     }
 }

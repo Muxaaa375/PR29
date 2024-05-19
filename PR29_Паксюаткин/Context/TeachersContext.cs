@@ -29,6 +29,7 @@ namespace PR29_Паксюаткин.Context
             }
             else
             {
+                teachersItem.Courses = null;
                 context.Teachers.Update(teachersItem);
             }
             context.SaveChanges();

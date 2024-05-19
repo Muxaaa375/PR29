@@ -25,7 +25,7 @@
             <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
         </Grid.Effect>
 
-        <Image Width="50" Height="50" Source="/Images/icon_courses.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"/>
+        <Image Width="50" Height="50" Source="/View/Courses/icon-courses.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"/>
 
         <Grid Margin="65,0,0,0">
             <Grid.ColumnDefinitions>
@@ -37,7 +37,7 @@
                  VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
 
             <Label Content="Дата события:" VerticalAlignment="Top" Margin="10,67,10,0" />
-            <DatePicker x:Name="Date" Text="{Binding item.Date}" Height="25" VerticalAlignment="Top" Margin="10,93,10,0" VerticalContentAlignment="Center" />
+            <DatePicker x:Name="Date" SelectedDate="{Binding item.Date}" Height="25" VerticalAlignment="Top" Margin="10,93,10,0" VerticalContentAlignment="Center" />
 
             <Label Content="Время:" VerticalAlignment="Top" Margin="10,67,10,0" Grid.Column="1" />
             <TextBox x:Name="Time" Text="{Binding item.Time}" Height="25" VerticalAlignment="Top" Margin="10,93,10,0"

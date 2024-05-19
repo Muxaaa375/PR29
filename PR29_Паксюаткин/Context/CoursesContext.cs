@@ -14,30 +14,32 @@ namespace PR29_Паксюаткин.Context
             optionsBuilder.UseMySql(Config.ConnectionConfig, Config.Version);
 
         public CoursesContext() => Database.EnsureCreated();
+
         public static ObservableCollection<Courses> AllCourses()
         {
             using CoursesContext context = new();
-            return new ObservableCollection<Courses>([.. context.Courses]);
+            return new ObservableCollection<Courses>(context.Courses);
         }
 
-        public void Save(Courses сoursesItem, bool isNew)
+        public void Save(Courses coursesItem, bool isNew)
         {
             using CoursesContext context = new();
             if (isNew)
             {
-                context.Courses.Add(сoursesItem);
+                context.Courses.Add(coursesItem);
             }
             else
             {
-                context.Courses.Update(сoursesItem);
+                context.Courses.Update(coursesItem);
             }
             context.SaveChanges();
         }
 
-        public void Delete(Courses сoursesItem)
+        public void Delete(Courses coursesItem)
         {
-            Courses.Remove(сoursesItem);
-            SaveChanges();
+            using CoursesContext context = new();
+            context.Courses.Remove(coursesItem);
+            context.SaveChanges();
         }
 
         public RelayCommand OnSave
@@ -46,9 +48,9 @@ namespace PR29_Паксюаткин.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    if (obj is Courses сoursesItem)
+                    if (obj is Courses coursesItem)
                     {
-                        Save(сoursesItem, сoursesItem.Id == 0);
+                        Save(coursesItem, coursesItem.Id == 0);
                         MainWindow.init?.frame.Navigate(new View.Courses.Main());
                     }
                 });

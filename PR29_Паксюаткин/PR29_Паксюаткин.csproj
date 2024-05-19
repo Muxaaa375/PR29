@@ -2,19 +2,30 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.4" />
+    <None Remove="icon-mainwindow.png" />
+    <None Remove="View\Courses\icon-courses.png" />
+    <None Remove="View\Teachers\icon-teachers.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="MySql.Data">
-      <HintPath>E:\Отчёт по МДК 05.02 (Ощепков)\Библиотеки\MySql.Data.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icon-mainwindow.png" />
+    <Resource Include="View\Courses\icon-courses.png" />
+    <Resource Include="View\Teachers\icon-teachers.png" />
   </ItemGroup>
 
 </Project>

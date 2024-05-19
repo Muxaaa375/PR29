@@ -15,6 +15,8 @@ namespace PR29_Паксюаткин.ViewModel
 {
     public class VMTeachers : INotifyPropertyChanged
     {
+
+
         public ObservableCollection<Teachers> Items { get; set; }
 
         public Classes.RelayCommand NewItem
@@ -47,6 +49,7 @@ namespace PR29_Паксюаткин.ViewModel
                     })
             );
         }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PR29_Паксюаткин.Classes;
+using PR29_Паксюаткин.Context;
+using PR29_Паксюаткин.ViewModel;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 
 namespace PR29_Паксюаткин.Model
 {
@@ -59,7 +60,37 @@ namespace PR29_Паксюаткин.Model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
             }
-        }     
+        }
 
+        public RelayCommand OnEdit
+        {
+            get
+            {
+                return new RelayCommand(coursesItem =>
+                {
+                    if (coursesItem is Courses coursesObject)
+                    {
+                        VMCoursesAdd newModel = new(coursesObject, new CoursesContext());
+                        MainWindow.init?.frame.Navigate(new View.Courses.Add(newModel));
+                    }
+                });
+            }
+        }
+        public RelayCommand OnDelete
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    if (obj is Courses coursesItem)
+                    {
+                        using CoursesContext coursesContext = new();
+                        coursesContext.Delete(this);
+                        MainWindow.init.MainCourses = new View.Courses.Main();
+                        MainWindow.init.frame.Navigate(MainWindow.init.MainCourses);
+                    }
+                });
+            }
+        }
     }
 }
