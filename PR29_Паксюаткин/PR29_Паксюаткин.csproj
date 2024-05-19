@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Classes\Common\" />
     <Folder Include="Context\" />
     <Folder Include="Images\" />
     <Folder Include="View\Courses\Elements\" />
