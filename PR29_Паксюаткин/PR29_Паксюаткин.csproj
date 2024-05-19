@@ -2,16 +2,26 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Context\" />
     <Folder Include="Images\" />
     <Folder Include="View\Courses\Elements\" />
     <Folder Include="View\Teachers\Elements\" />
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>E:\Отчёт по МДК 05.02 (Ощепков)\Библиотеки\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
