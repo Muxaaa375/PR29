@@ -20,9 +20,10 @@ namespace PR29_Паксюаткин.View.Teachers
     /// </summary>
     public partial class Add : Page
     {
-        public Add()
+        public Add(object? Context)
         {
             InitializeComponent();
+            DataContext = Context;
         }
     }
 }
