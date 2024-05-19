@@ -15,14 +15,12 @@ using System.Windows.Shapes;
 
 namespace PR29_Паксюаткин.View.Courses
 {
-    /// <summary>
-    /// Логика взаимодействия для Add.xaml
-    /// </summary>
     public partial class Add : Page
     {
-        public Add()
+        public Add(object? Context)
         {
             InitializeComponent();
+            DataContext = Context;
         }
     }
 }
